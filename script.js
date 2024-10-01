@@ -5,8 +5,8 @@ let resultContainer = document.querySelector(".result_container");
 let victoryContainer=document.querySelector(".victory-container");
 let nextbtn=document.querySelector("#nextbtn");
 let topSection=document.querySelector(".top_section");
-let outercircle1=document.getElementById(".outer_circle1");
-let outercircle2=document.getElementById(".outer_circle2");
+let outercircle1=document.querySelector(".outer_circle1");
+let outercircle2=document.querySelector(".outer_circle2");
 
 
 
@@ -99,20 +99,23 @@ const updateScore = (winner) => {
     document.getElementById("current--1").textContent = userScore;
     localStorage.setItem("userScore", userScore);
     nextbtn.classList.remove("hidden") ;
-    outercircle2.classList.remove("outer_circle");
+    outercircle1.classList.add("outer_circle");
     
     
   } else if (winner === "computer") {
     computerScore++;
     document.getElementById("current--0").textContent = computerScore;
     localStorage.setItem("computerScore", computerScore); 
-    outercircle1.classList.remove("outer_circle");
+    outercircle2.classList.add("outer_circle");
     
   }
 };
 function playagain(){
   container.classList.remove("hidden");
   nextbtn.classList.add("hidden") ;
+  outercircle1.classList.remove("outer_circle");
+
+  outercircle2.classList.remove("outer_circle");
 
   resultContainer.classList.add("hidden");
   topSection.classList.remove("hidden");
